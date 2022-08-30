@@ -28,7 +28,18 @@ class MainActivity : AppCompatActivity() {
 
         option = findViewById<Spinner>(R.id.spinner)
         result = findViewById<TextView>(R.id.textView)
-        option?.adapter = ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, array)
+      //  option?.adapter = ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, array)
+
+                ArrayAdapter.createFromResource(
+                    this,
+            R.array.currency_array,
+            android.R.layout.simple_spinner_item
+        ).also { adapter ->
+            // Specify the layout to use when the list of choices appears
+            adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
+            // Apply the adapter to the spinner
+                    option?.adapter = adapter
+        }
 
         option?.onItemSelectedListener = object : AdapterView.OnItemSelectedListener{
             override fun onItemSelected(p0: AdapterView<*>?, p1: View?, p2: Int, p3: Long) {
@@ -40,7 +51,6 @@ class MainActivity : AppCompatActivity() {
                     2 -> result?.text = array.get(2)
                 }
             }
-
 
             override fun onNothingSelected(p0: AdapterView<*>?) {
                // result?.text = array.get(0)

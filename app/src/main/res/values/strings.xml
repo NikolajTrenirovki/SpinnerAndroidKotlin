@@ -1,3 +1,10 @@
 <resources>
     <string name="app_name">SpinnerAndroidKotlin</string>
+
+    <string-array name="currency_array">
+        <item>USD</item>
+        <item>RON</item>
+        <item>GBP</item>
+        <item>KZT</item>
+    </string-array>
 </resources>

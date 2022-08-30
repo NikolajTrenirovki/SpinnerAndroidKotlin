@@ -32,12 +32,12 @@ class MainActivity : AppCompatActivity() {
 
         option?.onItemSelectedListener = object : AdapterView.OnItemSelectedListener{
             override fun onItemSelected(p0: AdapterView<*>?, p1: View?, p2: Int, p3: Long) {
-                result?.text = "Please Select an Option"
+                result?.text = array.get(p2)
             }
 
 
             override fun onNothingSelected(p0: AdapterView<*>?) {
-                result?.text = array.get(0)
+               // result?.text = array.get(0)
             }
 
         }

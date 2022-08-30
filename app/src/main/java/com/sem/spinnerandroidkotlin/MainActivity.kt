@@ -1,5 +1,6 @@
 package com.sem.spinnerandroidkotlin
 
+import android.annotation.SuppressLint
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
@@ -17,6 +18,7 @@ class MainActivity : AppCompatActivity() {
     private var option : Spinner? = null
     private var result : TextView? = null
 
+    @SuppressLint("WrongViewCast")
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
@@ -24,6 +26,8 @@ class MainActivity : AppCompatActivity() {
 
         val array = arrayOf("Option 1", "Option 2", "Option 3")
 
+        option = findViewById<Spinner>(R.id.spinner)
+        result = findViewById<TextView>(R.id.textView)
         option?.adapter = ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, array)
 
         option?.onItemSelectedListener = object : AdapterView.OnItemSelectedListener{
